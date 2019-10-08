@@ -26,4 +26,7 @@ public class Answer {
 
     private String createdBy;
 
+    // Answer N : 1 Doctor
+    private Doctor doctor;
+
 }

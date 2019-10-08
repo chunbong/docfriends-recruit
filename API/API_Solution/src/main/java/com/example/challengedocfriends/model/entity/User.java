@@ -5,9 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,5 +21,9 @@ public class User {
     private String email;
 
     private String password;
+
+    // User 1 : N Question
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<Question> questionList;
 
 }

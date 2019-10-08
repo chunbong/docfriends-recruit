@@ -5,9 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,5 +19,9 @@ public class Tag {
     private Long id;
 
     private String name;
+
+    // Tag 1 : N Question
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tag")
+    private List<Question> questionList;
 
 }

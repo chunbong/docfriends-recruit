@@ -5,10 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -27,5 +26,12 @@ public class Question {
     private LocalDate createdAt;
 
     private String createdBy;
+
+    // Question N : 1 User
+    private User user;
+
+    // Question 1 : N Answer
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "answer")
+    private List<Answer> answerList;
 
 }

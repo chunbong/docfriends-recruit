@@ -5,9 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,5 +19,9 @@ public class Doctor {
     private Long id;
 
     private String name;
+
+    // Doctor 1 : N Answer
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "doctor")
+    private List<Answer> answerList;
 
 }
