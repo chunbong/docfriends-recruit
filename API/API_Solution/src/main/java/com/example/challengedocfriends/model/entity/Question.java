@@ -27,7 +27,8 @@ public class Question {
 
     private String createdBy;
 
-    // Question N : 1 User
+    // Question 1 : 1 User
+    @OneToOne(mappedBy = "question")
     private User user;
 
     // Question 1 : N Answer
