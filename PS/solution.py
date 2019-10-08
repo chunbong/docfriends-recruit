@@ -23,3 +23,6 @@ for i in range(len(numbers)):   # 숫자 배열에서 가장 작은 수(0)과 �
 
 print(minNumIndex)
 print(maxNumIndex)
+
+a, b = map(int, input().split())    # a b 형태로 입력
+print(a + b)
