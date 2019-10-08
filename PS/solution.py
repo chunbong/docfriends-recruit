@@ -20,3 +20,6 @@ for i in range(len(numbers)):   # 숫자 배열에서 가장 작은 수(0)과 �
         minNumIndex.append(i)
     if numbers[i] == "9":
         maxNumIndex.append(i)
+
+print(minNumIndex)
+print(maxNumIndex)
