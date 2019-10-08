@@ -20,8 +20,7 @@ public class Tag {
 
     private String name;
 
-    // Tag 1 : N Question
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tag")
-    private List<Question> questionList;
+    // To Do
+    // Tag N : M Question
 
 }

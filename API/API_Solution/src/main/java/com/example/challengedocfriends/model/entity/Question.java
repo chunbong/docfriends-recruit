@@ -35,4 +35,7 @@ public class Question {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "answer")
     private List<Answer> answerList;
 
+    // To Do
+    // Question N : M Tag
+
 }
