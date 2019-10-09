@@ -23,6 +23,12 @@ public class User {
 
     private String password;
 
+    private String location;
+
+    private Integer age;
+
+    private String gender;
+
     // User 1 : N Question
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<Question> questionList;
