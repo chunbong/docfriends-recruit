@@ -1,9 +1,7 @@
 package com.example.challengedocfriends.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,6 +11,9 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Builder
+@Accessors(chain = true)
+@Entity
+@ToString(exclude = {"user", "answerList", "questionTagGroupList"})
 public class Question {
 
     @Id
@@ -27,15 +28,16 @@ public class Question {
 
     private String createdBy;
 
-    // Question 1 : 1 User
-    @OneToOne(mappedBy = "question")
+    // Question N : 1 User
+    @ManyToOne
     private User user;
 
     // Question 1 : N Answer
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "answer")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
     private List<Answer> answerList;
 
-    // To Do
-    // Question N : M Tag
+    // Question 1 : N QuestionTagGroup
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
+    private List<QuestionTagGroup> questionTagGroupList;
 
 }

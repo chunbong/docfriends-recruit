@@ -4,7 +4,6 @@ import lombok.*;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,17 +11,19 @@ import java.util.List;
 @Builder
 @Accessors(chain = true)
 @Entity
-@ToString(exclude = {"questionTagGroupList"})
-public class Tag {
+@ToString(exclude = {"question", "tag"})
+public class QuestionTagGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    // QuestionTagGroup N : 1 Question
+    @ManyToOne
+    private Question question;
 
-    // Tag 1 : N QuestionTagGroup
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tag")
-    private List<QuestionTagGroup> questionTagGroupList;
+    // QuestionTagGroup N : 1 Tag
+    @ManyToOne
+    private Tag tag;
 
 }

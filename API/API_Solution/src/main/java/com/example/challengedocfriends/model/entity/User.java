@@ -1,9 +1,7 @@
 package com.example.challengedocfriends.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,6 +10,9 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Builder
+@Accessors(chain = true)
+@Entity
+@ToString(exclude = {"questionList"})
 public class User {
 
     @Id

@@ -1,19 +1,18 @@
 package com.example.challengedocfriends.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.Accessors;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Builder
+@Accessors(chain = true)
+@Entity
+@ToString(exclude = {"doctor", "question"})
 public class Answer {
 
     @Id
@@ -29,6 +28,11 @@ public class Answer {
     private String createdBy;
 
     // Answer N : 1 Doctor
+    @ManyToOne
     private Doctor doctor;
+
+    // Answer N : 1 Question
+    @ManyToOne
+    private Question question;
 
 }
