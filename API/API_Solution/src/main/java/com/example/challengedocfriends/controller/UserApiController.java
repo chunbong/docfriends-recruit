@@ -26,8 +26,6 @@ public class UserApiController implements CrudInterface<UserApiRequest, UserApiR
     @Override
     @PostMapping("/login")
     public Header<UserApiResponse> read(@RequestBody Header<UserApiRequest> request) {
-        System.out.println(request.getData().getEmail());
-        System.out.println(request.getData().getPassword());
         return userApiLogicService.read(request);
     }
 

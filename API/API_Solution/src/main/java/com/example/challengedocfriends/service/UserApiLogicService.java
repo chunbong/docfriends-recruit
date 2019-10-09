@@ -31,16 +31,14 @@ public class UserApiLogicService implements CrudInterface<UserApiRequest, UserAp
         Optional<User> optional = userRepository.findByEmail(userApiRequest.getEmail());
 
         if(optional.isPresent()){
-            System.out.println(optional.get().getEmail());
-            System.out.println(optional.get().getPassword());
             if(optional.get().getPassword().equals(userApiRequest.getPassword())){
                 return response(optional.get());
             }else{
-                return Header.ERROR("아이디, 비밀번호가 일치하지 않음");
+                return Header.ERROR("fail");
             }
         }
 
-        return Header.ERROR("아이디, 비밀번호가 일치하지 않음");
+        return Header.ERROR("fail");
     }
 
 
