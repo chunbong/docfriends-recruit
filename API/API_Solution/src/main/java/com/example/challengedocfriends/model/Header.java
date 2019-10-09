@@ -13,9 +13,6 @@ import java.time.LocalDateTime;
 @Builder
 public class Header<T> {
 
-    // api 통신 시간
-    private LocalDateTime transactionTime;
-
     // api 응답 코드
     private String resultCode;
 
@@ -28,7 +25,6 @@ public class Header<T> {
     // OK
     public static <T> Header<T> OK(){
         return (Header<T>)Header.builder()
-                .transactionTime(LocalDateTime.now())
                 .resultCode("OK")
                 .description("OK")
                 .build();
@@ -37,7 +33,6 @@ public class Header<T> {
     // data OK
     public static <T> Header<T> OK(T data){
         return (Header<T>)Header.builder()
-                .transactionTime(LocalDateTime.now())
                 .resultCode("OK")
                 .description("OK")
                 .data(data)
@@ -47,7 +42,6 @@ public class Header<T> {
     // ERROR
     public static <T> Header<T> ERROR(String description){
         return (Header<T>)Header.builder()
-                .transactionTime(LocalDateTime.now())
                 .resultCode("ERROR")
                 .description(description)
                 .build();
