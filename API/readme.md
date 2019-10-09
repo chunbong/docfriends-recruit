@@ -39,3 +39,47 @@ DB구조에 정확한 정답은 없으며, 해당 구조로 만든 이유를 설
         <img src="doctalk_answer.PNG" width="300" height="500">
 
     위 이미지의 데이터를 반환 해주세요
+
+
+
+# Login API
+
+### Request
+
+**URL** : ```/api/user/login```
+
+```json
+{
+  "resultCode" : "OK",
+  "description" : "OK",
+  "data" : {
+    "email" : "user01@gmail.com",
+    "password" : "1234"
+  }
+}
+```
+
+### Response
+
+이메일, 비밀번호가 일치하는 경우
+
+```json
+{
+  "result_code": "OK",
+  "description": "OK",
+  "data":{
+  	"result": "success"
+  }
+}
+```
+
+이메일, 비밀번호가 일치하지 않는 경우
+
+```json
+{
+  "result_code": "ERROR",
+  "description": "이메일, 비밀번호가 일치하지 않음",
+  "data": null
+}
+```
+
