@@ -2,11 +2,13 @@ package com.example.challengedocfriends.repository;
 
 import com.example.challengedocfriends.ChallengeDocfriendsApplicationTests;
 import com.example.challengedocfriends.model.entity.Question;
+import com.example.challengedocfriends.model.entity.QuestionTagGroup;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class QuestionRepositoryTest extends ChallengeDocfriendsApplicationTests {
 
@@ -16,14 +18,17 @@ public class QuestionRepositoryTest extends ChallengeDocfriendsApplicationTests 
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private QuestionTagGroupRepository questionTagGroupRepository;
+
     @Test
     public void create(){
         Question question = Question.builder()
-                .title("여드름 걱정")
-                .content("피부가 건성인데 여드름이 자주 생겨요.")
+                .title("여드름, 사용하던 선크림이 단종돼서 다른걸")
+                .content("선크림 영향인지 모르겠지만 최근 어쩔 수 없이")
                 .createdAt(LocalDate.now())
                 .createdBy("Admin")
-                .user(userRepository.getOne(1L))
+                .user(userRepository.getOne(3L))
                 .build();
 
         Question newQuestion = questionRepository.save(question);

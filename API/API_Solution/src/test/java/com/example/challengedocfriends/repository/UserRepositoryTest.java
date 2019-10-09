@@ -14,11 +14,11 @@ public class UserRepositoryTest extends ChallengeDocfriendsApplicationTests {
     @Test
     public void create(){
         User user = User.builder()
-                .email("user02@gmail.com")
-                .password("2222")
-                .location("수원")
-                .age(24)
-                .gender("male")
+                .email("user03@gmail.com")
+                .password("3333")
+                .location("울산")
+                .age(23)
+                .gender("female")
                 .build();
 
         User newUser = userRepository.save(user);

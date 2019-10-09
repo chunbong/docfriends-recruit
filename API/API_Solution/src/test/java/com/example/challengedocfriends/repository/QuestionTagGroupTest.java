@@ -21,7 +21,7 @@ public class QuestionTagGroupTest extends ChallengeDocfriendsApplicationTests {
     public void create(){
         QuestionTagGroup questionTagGroup = QuestionTagGroup.builder()
                 .tag(tagRepository.getOne(1L))
-                .question(questionRepository.getOne(1L))
+                .question(questionRepository.getOne(2L))
                 .build();
 
         QuestionTagGroup newQuestionTagGroup = questionTagGroupRepository.save(questionTagGroup);

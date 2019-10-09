@@ -14,7 +14,7 @@ public class TagRepositoryTest extends ChallengeDocfriendsApplicationTests {
     @Test
     public void create(){
         Tag tag = Tag.builder()
-                .name("#한방피부과")
+                .name("#한방재활의학과")
                 .build();
 
         Tag newTag = tagRepository.save(tag);
