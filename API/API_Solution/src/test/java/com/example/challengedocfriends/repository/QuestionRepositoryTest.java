@@ -1,6 +1,7 @@
 package com.example.challengedocfriends.repository;
 
 import com.example.challengedocfriends.ChallengeDocfriendsApplicationTests;
+import com.example.challengedocfriends.model.entity.Answer;
 import com.example.challengedocfriends.model.entity.Question;
 import com.example.challengedocfriends.model.entity.QuestionTagGroup;
 import org.junit.Assert;
@@ -21,6 +22,10 @@ public class QuestionRepositoryTest extends ChallengeDocfriendsApplicationTests 
     @Autowired
     private QuestionTagGroupRepository questionTagGroupRepository;
 
+    @Autowired
+    private AnswerRepository answerRepository;
+
+
     @Test
     public void create(){
         Question question = Question.builder()
@@ -34,5 +39,23 @@ public class QuestionRepositoryTest extends ChallengeDocfriendsApplicationTests 
         Question newQuestion = questionRepository.save(question);
 
         Assert.assertNotNull(newQuestion);
+    }
+
+    @Test
+    public void read(){
+        List<Question> questionList = questionRepository.findAll();
+
+        Assert.assertNotNull(questionList);
+    }
+
+    @Test
+    public void getAnswerCount(){
+        Question question = questionRepository.getOne(2L);
+
+        Assert.assertNotNull(question);
+
+        List<Answer> answerList = answerRepository.findByQuestion(question);
+
+        System.out.println(answerList.size());
     }
 }
