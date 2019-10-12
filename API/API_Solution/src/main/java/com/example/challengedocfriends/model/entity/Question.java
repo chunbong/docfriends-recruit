@@ -24,6 +24,8 @@ public class Question {
 
     private String content;
 
+    private String source;
+
     private LocalDate createdAt;
 
     private String createdBy;

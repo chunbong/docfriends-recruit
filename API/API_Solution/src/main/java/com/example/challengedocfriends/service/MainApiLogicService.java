@@ -72,7 +72,6 @@ public class MainApiLogicService {
 
 
     public List<MainApiResponse> readAll() {
-
         List<Question> questionList = questionRepository.findAll();
         List<MainApiResponse> mainApiResponseList = new ArrayList<>();
 
