@@ -27,7 +27,7 @@ public class AnswerRepositoryTest extends ChallengeDocfriendsApplicationTests {
                 .createdAt(LocalDate.now())
                 .createdBy("Admin")
                 .doctor(doctorRepository.getOne(1L))
-                .question(questionRepository.getOne(1L))
+                .question(questionRepository.getOne(2L))
                 .build();
 
         Answer newAnswer = answerRepository.save(answer);

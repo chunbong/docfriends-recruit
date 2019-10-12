@@ -1,8 +1,5 @@
 package com.example.challengedocfriends.controller;
 
-import com.example.challengedocfriends.ifs.CrudInterface;
-import com.example.challengedocfriends.model.Header;
-import com.example.challengedocfriends.model.network.request.MainApiRequest;
 import com.example.challengedocfriends.model.network.response.MainApiResponse;
 import com.example.challengedocfriends.service.MainApiLogicService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +17,9 @@ public class MainApiController {
     private MainApiLogicService mainApiLogicService;
 
     @GetMapping("")
-    public List<MainApiResponse> read() {
+    public List<MainApiResponse> readAll() {
 
-        return mainApiLogicService.read();
+        return mainApiLogicService.readAll();
     }
 
 }
