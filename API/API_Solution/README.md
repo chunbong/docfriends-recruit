@@ -14,7 +14,7 @@
 
 **URL** ( 프론트 페이지가 없어서 GET Method로 구현했습니다🙃 )
 
-```http://ec2-52-78-86-4.ap-northeast-2.compute.amazonaws.com/login?email=user01@gmail.com&password=aaaa```
+http://ec2-52-78-86-4.ap-northeast-2.compute.amazonaws.com/login?email=user01@gmail.com&password=aaaa
 
 **Parameter** : email, password
 
@@ -61,7 +61,7 @@
 
 **URL**
 
-```http://ec2-52-78-86-4.ap-northeast-2.compute.amazonaws.com```
+http://ec2-52-78-86-4.ap-northeast-2.compute.amazonaws.com
 
 ### Response
 
@@ -117,7 +117,7 @@
 
 **URL** 
 
- ```http://ec2-52-78-86-4.ap-northeast-2.compute.amazonaws.com/1```
+ http://ec2-52-78-86-4.ap-northeast-2.compute.amazonaws.com/1
 
 **Parameter** : question ID
 
