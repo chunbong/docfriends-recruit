@@ -2,9 +2,9 @@ package com.example.challengedocfriends.service;
 
 import com.example.challengedocfriends.model.entity.Answer;
 import com.example.challengedocfriends.model.entity.Question;
-import com.example.challengedocfriends.model.network.response.ConsultDetailAnswerApiResponse;
+import com.example.challengedocfriends.model.network.response.AnswerApiResponse;
 import com.example.challengedocfriends.model.network.response.ConsultDetailApiResponse;
-import com.example.challengedocfriends.model.network.response.MainApiResponse;
+import com.example.challengedocfriends.model.network.response.QuestionApiResponse;
 import com.example.challengedocfriends.repository.AnswerRepository;
 import com.example.challengedocfriends.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,29 +26,30 @@ public class ConsultDetailApiLogicService extends MainApiLogicService {
 
     public ConsultDetailApiResponse read(Long id){
         Optional<Question> question = questionRepository.findById(id);
-        MainApiResponse mainApiResponse = null;
+        QuestionApiResponse questionApiResponse = null;
         List<Answer> answerList = new ArrayList<>();
-        List<ConsultDetailAnswerApiResponse> consultDetailAnswerApiResponseList = new ArrayList<>();
+        List<AnswerApiResponse> answerApiResponseList = new ArrayList<>();
 
         if(question.isPresent()){
-            mainApiResponse = read(question.get());
+            questionApiResponse = read(question.get());
             answerList = answerRepository.findByQuestion(question.get());
 
             for(Answer answer : answerList){
-                ConsultDetailAnswerApiResponse consultDetailAnswerApiResponse = ConsultDetailAnswerApiResponse.builder()
+                AnswerApiResponse answerApiResponse = AnswerApiResponse.builder()
                         .name(answer.getDoctor().getName())
                         .createdAt(answer.getCreatedAt())
                         .content(answer.getContent())
                         .build();
 
-                consultDetailAnswerApiResponseList.add(consultDetailAnswerApiResponse);
+                answerApiResponseList.add(answerApiResponse);
             }
         }
 
+        questionApiResponse.setSource(question.get().getSource());  // 응답 객체에 출처를 추가
+
         ConsultDetailApiResponse consultDetailApiResponse = ConsultDetailApiResponse.builder()
-                .question(mainApiResponse)
-                .source(question.get().getSource())
-                .answer(consultDetailAnswerApiResponseList)
+                .question(questionApiResponse)
+                .answerList(answerApiResponseList)
                 .build();
 
         return consultDetailApiResponse;

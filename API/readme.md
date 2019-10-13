@@ -110,3 +110,38 @@ DB구조에 정확한 정답은 없으며, 해당 구조로 만든 이유를 설
 }
 ```
 
+<br>
+
+# Consult Detail API
+
+### Requset
+
+**url** : ```/{quetion_id}```
+
+### Response
+
+```json
+{
+  "question":{
+    "location": "수원",
+    "age": 24,
+    "gender": "남",
+    "title": "여드름, 피부가 건조하면 등여드름이 잘 생겨요",
+    "tag_list":[
+    	"#한방피부과"
+    ],
+    "content": "제가 얼굴이며 몸이며, 피부가 정말 악건성인데...등여드름이 정말 자주 생겨요. 바디로션도 꾸준히 바르는데, 심하진 않아도 주기적으로 자잘하게 등여드름이 생기면 어떻게 해결해야 하는 ...",
+    "answer_cnt": 1,
+    "created_at": "2019-09-05",
+    "source": "http://miraesol.com/mi"
+  },
+  "answer_list":[
+    {
+      "name": "정동원",
+      "created_at": "2019-10-10",
+      "content": "피부가 건조하면 모공의 입구가 잘 막히게 됩니다."
+    }
+  ]
+}
+```
+

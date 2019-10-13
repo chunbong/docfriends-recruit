@@ -4,7 +4,7 @@ import com.example.challengedocfriends.model.entity.Question;
 import com.example.challengedocfriends.model.entity.QuestionTagGroup;
 import com.example.challengedocfriends.model.entity.Tag;
 import com.example.challengedocfriends.model.entity.User;
-import com.example.challengedocfriends.model.network.response.MainApiResponse;
+import com.example.challengedocfriends.model.network.response.QuestionApiResponse;
 import com.example.challengedocfriends.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,11 +49,11 @@ public class MainApiLogicService {
     }
 
 
-    public MainApiResponse read(Question question) {
+    public QuestionApiResponse read(Question question) {
         Optional<User> optionalUser = userRepository.findById(question.getUser().getId());
 
         if(optionalUser.isPresent()){
-            MainApiResponse mainApiResponse = MainApiResponse.builder()
+            QuestionApiResponse questionApiResponse = QuestionApiResponse.builder()
                     .location(optionalUser.get().getLocation())
                     .age(optionalUser.get().getAge())
                     .gender(optionalUser.get().getGender())
@@ -64,21 +64,21 @@ public class MainApiLogicService {
                     .createdAt(question.getCreatedAt())
                     .build();
 
-            return mainApiResponse;
+            return questionApiResponse;
         }
 
         return null;
     }
 
 
-    public List<MainApiResponse> readAll() {
+    public List<QuestionApiResponse> readAll() {
         List<Question> questionList = questionRepository.findAll();
-        List<MainApiResponse> mainApiResponseList = new ArrayList<>();
+        List<QuestionApiResponse> questionApiResponseList = new ArrayList<>();
 
         for (Question question : questionList) {
-            mainApiResponseList.add(read(question));
+            questionApiResponseList.add(read(question));
         }
 
-        return mainApiResponseList;
+        return questionApiResponseList;
     }
 }

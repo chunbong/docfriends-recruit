@@ -1,6 +1,6 @@
 package com.example.challengedocfriends.controller;
 
-import com.example.challengedocfriends.model.network.response.MainApiResponse;
+import com.example.challengedocfriends.model.network.response.QuestionApiResponse;
 import com.example.challengedocfriends.service.MainApiLogicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class MainApiController {
     private MainApiLogicService mainApiLogicService;
 
     @GetMapping("")
-    public List<MainApiResponse> readAll() {
+    public List<QuestionApiResponse> readAll() {
 
         return mainApiLogicService.readAll();
     }

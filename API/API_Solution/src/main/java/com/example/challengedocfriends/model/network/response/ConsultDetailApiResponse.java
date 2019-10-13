@@ -13,10 +13,8 @@ import java.util.List;
 @Builder
 public class ConsultDetailApiResponse {
 
-    private MainApiResponse question;
+    private QuestionApiResponse question;
 
-    private String source;
-
-    private List<ConsultDetailAnswerApiResponse> answer;
+    private List<AnswerApiResponse> answerList;
 
 }
