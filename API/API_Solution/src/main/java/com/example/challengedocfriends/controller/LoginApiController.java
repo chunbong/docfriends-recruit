@@ -14,8 +14,8 @@ public class LoginApiController {
     private LoginApiLogicService userApiLogicService;
 
 
-    @PostMapping("")
-    public LoginApiResponse read(@RequestBody LoginApiRequest request) {
+    @GetMapping("")
+    public LoginApiResponse read(LoginApiRequest request) {
         return userApiLogicService.read(request);
     }
 
