@@ -116,7 +116,7 @@ DB구조에 정확한 정답은 없으며, 해당 구조로 만든 이유를 설
 
 ### Requset
 
-**url** : ```/{quetion_id}```
+**url** : ```/{question_id}```
 
 ### Response
 
