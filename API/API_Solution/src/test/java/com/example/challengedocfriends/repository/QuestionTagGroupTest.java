@@ -5,6 +5,7 @@ import com.example.challengedocfriends.model.entity.QuestionTagGroup;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 public class QuestionTagGroupTest extends ChallengeDocfriendsApplicationTests {
 
@@ -17,7 +18,9 @@ public class QuestionTagGroupTest extends ChallengeDocfriendsApplicationTests {
     @Autowired
     private QuestionRepository questionRepository;
 
+
     @Test
+    @Transactional
     public void create(){
         QuestionTagGroup questionTagGroup = QuestionTagGroup.builder()
                 .tag(tagRepository.getOne(1L))

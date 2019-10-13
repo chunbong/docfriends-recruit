@@ -5,6 +5,7 @@ import com.example.challengedocfriends.model.entity.QuestionTagGroup;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,7 +17,9 @@ public class QuestionTagGroupRepositoryTest extends ChallengeDocfriendsApplicati
     @Autowired
     private QuestionRepository questionRepository;
 
+
     @Test
+    @Transactional
     public void read(){
         List<QuestionTagGroup> questionTagGroupList = questionTagGroupRepository.findByQuestion(questionRepository.getOne(2l));
 

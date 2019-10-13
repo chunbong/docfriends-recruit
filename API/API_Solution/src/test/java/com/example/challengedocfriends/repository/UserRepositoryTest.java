@@ -5,13 +5,16 @@ import com.example.challengedocfriends.model.entity.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 public class UserRepositoryTest extends ChallengeDocfriendsApplicationTests {
 
     @Autowired
     private UserRepository userRepository;
 
+
     @Test
+    @Transactional
     public void create(){
         User user = User.builder()
                 .email("user03@gmail.com")

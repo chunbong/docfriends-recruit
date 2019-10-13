@@ -5,6 +5,7 @@ import com.example.challengedocfriends.model.entity.Doctor;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 public class DoctorRepositoryTest extends ChallengeDocfriendsApplicationTests {
 
@@ -12,6 +13,7 @@ public class DoctorRepositoryTest extends ChallengeDocfriendsApplicationTests {
     private DoctorRepository doctorRepository;
 
     @Test
+    @Transactional
     public void create(){
         Doctor doctor = Doctor.builder()
                 .name("정동원")

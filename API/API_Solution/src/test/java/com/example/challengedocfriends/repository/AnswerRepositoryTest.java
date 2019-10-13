@@ -5,6 +5,7 @@ import com.example.challengedocfriends.model.entity.Answer;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 
@@ -20,6 +21,7 @@ public class AnswerRepositoryTest extends ChallengeDocfriendsApplicationTests {
     private QuestionRepository questionRepository;
 
     @Test
+    @Transactional
     public void create(){
         Answer answer = Answer.builder()
                 .title("안녕하세요. 정동원 입니다.")

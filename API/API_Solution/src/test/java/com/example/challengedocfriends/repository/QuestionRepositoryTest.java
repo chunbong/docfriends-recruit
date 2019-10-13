@@ -7,6 +7,7 @@ import com.example.challengedocfriends.model.entity.QuestionTagGroup;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,13 +21,11 @@ public class QuestionRepositoryTest extends ChallengeDocfriendsApplicationTests 
     private UserRepository userRepository;
 
     @Autowired
-    private QuestionTagGroupRepository questionTagGroupRepository;
-
-    @Autowired
     private AnswerRepository answerRepository;
 
 
     @Test
+    @Transactional
     public void create(){
         Question question = Question.builder()
                 .title("여드름, 사용하던 선크림이 단종돼서 다른걸")
@@ -41,14 +40,18 @@ public class QuestionRepositoryTest extends ChallengeDocfriendsApplicationTests 
         Assert.assertNotNull(newQuestion);
     }
 
+
     @Test
+    @Transactional
     public void read(){
         List<Question> questionList = questionRepository.findAll();
 
         Assert.assertNotNull(questionList);
     }
 
+
     @Test
+    @Transactional
     public void getAnswerCount(){
         Question question = questionRepository.getOne(2L);
 
