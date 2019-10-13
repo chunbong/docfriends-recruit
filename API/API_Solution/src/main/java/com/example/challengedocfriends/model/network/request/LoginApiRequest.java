@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserApiRequest {
-
-    private Long id;
+public class LoginApiRequest {
 
     private String email;
 

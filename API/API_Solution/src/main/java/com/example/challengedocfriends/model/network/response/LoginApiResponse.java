@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class UserApiResponse {
+public class LoginApiResponse {
 
-    private String result;
+    private String resultMessage;
 
 }
